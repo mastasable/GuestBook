@@ -27,7 +27,7 @@
   <div class="wrapper">
     <div class="posts">
       <h2>Последние записи:</h2>
-      <c:forEach var="post" items="${requestScope.persons}">
+      <c:forEach var="post" items="${requestScope.posts}">
         <div class="commentary">${post.commentary}</div>
         <span class="name">${post.name}</span>
         <span class="date">${post.date}</span>

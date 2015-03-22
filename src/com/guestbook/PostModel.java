@@ -30,9 +30,9 @@ public class PostModel {
             Date aDate = resultSet.getDate(3);
 
             Post post = new Post();
-            post.getName(aName);
-            post.getCommentary(aCommentary);
-            post.getDate(aDate);
+            post.setName(aName);
+            post.setCommentary(aCommentary);
+            post.setDate(aDate);
             l.add(post);
         }
 
