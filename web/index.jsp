@@ -13,33 +13,42 @@
   <meta charset="UTF-8">
   <title>Guest book</title>
   <style>
-    input, textarea, div, span{
+    input, textarea, div, .date{
       display: block;
       margin-bottom: 20px;
     }
 
-    .date, .name{
-      float: right;
+    textarea{
+      resize: none;
+    }
+
+    .name{
+      display: block;
+    }
+
+    .wrapper{
+      width: 900px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="posts">
-      <h2>Последние записи:</h2>
-      <c:forEach var="post" items="${requestScope.posts}">
-        <div class="commentary">${post.commentary}</div>
-        <span class="name">${post.name}</span>
-        <span class="date">${post.date}</span>
-      </c:forEach>
-    </div>
-    <form action="response.jsp" method="post">
-      <h2>Напишите комментарий:</h2>
-      <label for="name">Ваше имя: </label>
-      <input id="name" type="text"/>
-      <textarea name="commentary" id="commentary" cols="30" rows="10"></textarea>
-      <button type="submit">Отправить</button>
-    </form>
+<div class="wrapper">
+  <div class="posts">
+    <h2>Последние записи:</h2>
+    <c:forEach var="post" items="${requestScope.posts}">
+      <div class="commentary">${post.commentary}</div>
+      <span class="name">${post.name}</span>
+      <span class="date">${post.date}</span>
+    </c:forEach>
   </div>
+  <form action="response.jsp" method="post">
+    <h2>Напишите комментарий:</h2>
+    <label for="name">Ваше имя: </label>
+    <input id="name" type="text"/>
+    <textarea name="commentary" id="commentary" cols="60" rows="10"></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+</div>
 </body>
 </html>
