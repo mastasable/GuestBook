@@ -6,15 +6,15 @@ import java.util.Date;
  * Created by admin on 22.03.2015.
  */
 public class Post {
-    String name;
-    String commentary;
-    Date date;
+    public String name;
+    public String commentary;
+    public Date date;
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getName(String name) {
+    public String getName() {
         return name;
     }
 
@@ -22,7 +22,7 @@ public class Post {
         this.commentary = commentary;
     }
 
-    public String getCommentary(String commentary) {
+    public String getCommentary() {
         return commentary;
     }
 
@@ -30,7 +30,7 @@ public class Post {
         this.date = date;
     }
 
-    public Date getDate(Date date) {
+    public Date getDate() {
         return date;
     }
 }

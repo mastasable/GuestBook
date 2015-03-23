@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html lang="Ru-ru">
+<html lang="En-en">
 <head>
   <meta charset="UTF-8">
   <title>Guest book</title>

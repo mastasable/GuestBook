@@ -19,7 +19,7 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             req.setAttribute("posts", PostModel.getPosts());
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
