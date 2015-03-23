@@ -58,5 +58,6 @@ public class PostModel {
         preparedStatement.setString(2, aCommentary);
         preparedStatement.setTimestamp(3, getCurrentTimeStamp());
         preparedStatement.executeUpdate();
+        getConnection().close();
     }
 }
