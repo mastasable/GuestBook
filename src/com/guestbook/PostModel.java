@@ -1,10 +1,7 @@
 package com.guestbook;
 
 import java.beans.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,9 +17,9 @@ public class PostModel {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/guestbook", "valiv", "valiv");
     }
 
-    private static Date getCurrentTimeStamp() {
-        Date today = Calendar.getInstance().getTime();
-        return today;
+    private static java.sql.Timestamp getCurrentTimeStamp() {
+        Date today = new java.util.Date();
+        return new java.sql.Timestamp(today.getTime());
     }
 
     public static List<Post> getPosts() throws SQLException, ClassNotFoundException {
@@ -53,9 +50,13 @@ public class PostModel {
     public static void addPosts(String name, String commentary) throws SQLException, ClassNotFoundException {
         String aName = name;
         String aCommentary = commentary;
-        Date date = getCurrentTimeStamp();
-        String query = "INSERT INTO posts (name, commentary, date) VALUES (" + aName + ", " + aCommentary + ", " + date + ")";
-        getConnection().createStatement().executeUpdate(query);
-        getConnection().close();
+        String query = "INSERT INTO posts" +
+                "(name, commentary, date)VALUES" +
+                "(?, ?, ?)";
+        PreparedStatement preparedStatement = getConnection().prepareStatement(query);
+        preparedStatement.setString(1, aName);
+        preparedStatement.setString(2, aCommentary);
+        preparedStatement.setTimestamp(3, getCurrentTimeStamp());
+        preparedStatement.executeUpdate();
     }
 }

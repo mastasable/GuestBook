@@ -16,6 +16,7 @@ public class Servlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             PostModel.addPosts(req.getParameter("name"), req.getParameter("commentary"));
+            req.getRequestDispatcher("/index.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

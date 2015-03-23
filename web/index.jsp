@@ -42,7 +42,7 @@
       <span class="date">${post.date}</span>
     </c:forEach>
   </div>
-  <form action="response.jsp" method="post">
+  <form action="" method="post">
     <h2>Напишите комментарий:</h2>
     <label for="name">Ваше имя: </label>
     <input id="name" name="name" type="text"/>
