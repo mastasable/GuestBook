@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,11 @@ public class PostModel {
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/guestbook", "valiv", "valiv");
+    }
+
+    private static Date getCurrentTimeStamp() {
+        Date today = Calendar.getInstance().getTime();
+        return today;
     }
 
     public static List<Post> getPosts() throws SQLException, ClassNotFoundException {
@@ -40,5 +46,16 @@ public class PostModel {
         getConnection().close();
 
         return l;
+    }
+
+
+
+    public static void addPosts(String name, String commentary) throws SQLException, ClassNotFoundException {
+        String aName = name;
+        String aCommentary = commentary;
+        Date date = getCurrentTimeStamp();
+        String query = "INSERT INTO posts (name, commentary, date) VALUES (" + aName + ", " + aCommentary + ", " + date + ")";
+        getConnection().createStatement().executeUpdate(query);
+        getConnection().close();
     }
 }

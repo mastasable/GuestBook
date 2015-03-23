@@ -14,6 +14,6 @@
   <title>Document</title>
 </head>
 <body>
-
+  <h2>Запись добавлена!</h2>
 </body>
 </html>

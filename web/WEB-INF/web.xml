@@ -11,7 +11,7 @@
 
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
-        <url-pattern>/Guestbook.jsp</url-pattern>
+        <url-pattern>/guestbook.jsp</url-pattern>
     </servlet-mapping>
 
 </web-app>

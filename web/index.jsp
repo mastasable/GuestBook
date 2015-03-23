@@ -45,7 +45,7 @@
   <form action="response.jsp" method="post">
     <h2>Напишите комментарий:</h2>
     <label for="name">Ваше имя: </label>
-    <input id="name" type="text"/>
+    <input id="name" name="name" type="text"/>
     <textarea name="commentary" id="commentary" cols="60" rows="10"></textarea>
     <button type="submit">Отправить</button>
   </form>
