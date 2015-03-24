@@ -23,7 +23,7 @@ public class PostModel {
     }
 
     public static List<Post> getPosts() throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = getConnection().createStatement().executeQuery("SELECT name, commentary, date FROM posts");
+        ResultSet resultSet = getConnection().createStatement().executeQuery("SELECT name, commentary, date, url FROM posts");
 
         ArrayList<Post> l = new ArrayList<Post>();
 
@@ -31,11 +31,13 @@ public class PostModel {
             String aName = resultSet.getString(1);
             String aCommentary = resultSet.getString(2);
             Date aDate = resultSet.getDate(3);
+            String url = resultSet.getString(4);
 
             Post post = new Post();
             post.setName(aName);
             post.setCommentary(aCommentary);
             post.setDate(aDate);
+            post.setUrl(url);
             l.add(post);
         }
 
@@ -47,16 +49,15 @@ public class PostModel {
 
 
 
-    public static void addPosts(String name, String commentary) throws SQLException, ClassNotFoundException {
-        String aName = name;
-        String aCommentary = commentary;
+    public static void addPosts(String name, String commentary, String url) throws SQLException, ClassNotFoundException {
         String query = "INSERT INTO posts" +
-                "(name, commentary, date)VALUES" +
-                "(?, ?, ?)";
+                "(name, commentary, date, url)VALUES" +
+                "(?, ?, ?, ?)";
         PreparedStatement preparedStatement = getConnection().prepareStatement(query);
-        preparedStatement.setString(1, aName);
-        preparedStatement.setString(2, aCommentary);
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, commentary);
         preparedStatement.setTimestamp(3, getCurrentTimeStamp());
+        preparedStatement.setString(4, url);
         preparedStatement.executeUpdate();
         getConnection().close();
     }

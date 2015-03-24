@@ -46,17 +46,21 @@
         <c:forEach var="post" items="${requestScope.posts}">
             <div class="post">
                 <div class="commentary">${post.commentary}</div>
+                <a class="item" href="${post.url}">${post.url}</a>
                 <span class="name">${post.name}</span>
                 <span class="date">${post.date}</span>
             </div>
         </c:forEach>
     </div>
-    <form method="post">
-        <h2>Напишите комментарий:</h2>
-        <label for="name">Ваше имя: </label>
-        <input id="name" name="name" type="text"/>
-        <textarea name="commentary" id="commentary" cols="80" rows="10"></textarea>
-        <button type="submit">Отправить</button>
+    <form method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legen><h2>Напишите комментарий</h2></legen>
+            <label for="name">Ваше имя: </label>
+            <input id="name" name="name" type="text"/>
+            <textarea name="commentary" id="commentary" cols="80" rows="10"></textarea>
+            <input type="file" name="file"/>
+            <button type="submit">Отправить</button>
+        </fieldset>
     </form>
 </div>
 </body>

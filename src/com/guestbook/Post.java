@@ -8,6 +8,16 @@ import java.util.Date;
 public class Post {
     public String name;
     public String commentary;
+    public String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public Date date;
 
     public void setName(String name) {
