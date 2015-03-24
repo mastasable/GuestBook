@@ -13,12 +13,7 @@
     <meta charset="UTF-8">
     <title>Guest book</title>
     <style>
-        input, textarea, div{
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        .date{
+        input, textarea, div, span{
             display: block;
             margin-bottom: 20px;
         }
@@ -36,6 +31,10 @@
 
         textarea{
             resize: none;
+        }
+
+        fieldset{
+            border: none;
         }
     </style>
 </head>

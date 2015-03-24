@@ -15,5 +15,12 @@
 </head>
 <body>
   <h2>Запись добавлена!</h2>
+  <p>Через 5 секунд Вы будете перенаправлены обратно. Если этого не происходит, перейдите самостоятельно: <a
+          href="guestbook">guestbook</a></p>
+  <script language="JavaScript">
+    var delay = 5000;
+    console.log("Идёт ожилание 5 сек ", delay)
+    setTimeout("document.location.href = 'guestbook'", delay);
+  </script>
 </body>
 </html>

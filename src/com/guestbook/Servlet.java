@@ -61,8 +61,8 @@ public class Servlet extends HttpServlet {
                      }
 
                  }
-             PostModel.addPosts(name, commentary, url);
-
+                 PostModel.addPosts(name, commentary, url);
+                 req.getRequestDispatcher("/response.jsp").forward(req, resp);
              }
          } catch (FileUploadException e) {
              e.printStackTrace();
